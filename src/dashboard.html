@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- <script src="/socket.io/socket.io.js"></script> -->
+</head>
+
+<body>
+    <h1>Welcome to Remote Control Dashboard</h1>
+    <span class="logout-icon" onclick="logout()">
+        <i class="fas fa-times"></i> <!-- Font Awesome cross icon -->
+    </span>
+
+    <!-- Screen Sharing Section -->
+    <div id="screen-sharing">
+ <!-- test-->    
+  <h2>  </h2>
+
+ <!-- test-->   
+       <button id="start-sharing-btn" style="background-color: white;"> test</button>
+
+        <!-- test-->   
+       <button id="stop-sharing-btn" style="display:none;"> </button>
+
+        <!-- This will display the remote screen -->
+        <h3>Remote Screen View:</h3>
+        <video id="videoElement" style="display:none;"></video>
+        <!-- <canvas id="remote-screen-canvas" width="800" height="600"></canvas> -->
+        <canvas id="remote-screen-canvas" style="display:none;"></canvas>
+        <canvas id="remoteCanvas" width="640" height="480"></canvas>
+    </div>
+
+    <!-- File Sharing Section -->
+    <div id="file-sharing">
+        <h2>File Sharing</h2>
+        <input type="file" id="file-input">
+        <button id="send-file-btn">Send File</button>
+        <div id="received-files"></div>
+    </div>
+
+
+    <script src="./renderer.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,258 @@
+/* General reset for all elements */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* background: linear-gradient(135deg, #2f4f4e, #0e191d); */
+    background: white;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Login form container styling */
+.login-container, .dashboard-container {
+    background-color: #2f4f4e;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    width: 350px;
+    animation: fadeIn 1s ease;
+}
+
+/* Animation for fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Header styling */
+h1, h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #d1b48c;
+}
+
+/* Styling for form inputs and buttons */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #d3d3d3;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #333;
+    margin-top: 5px;
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid #5e9ea0;
+    background-color: #e6f7f8;
+}
+
+input::placeholder {
+    color: #999;
+}
+
+/* Button styling */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #5e9ea0;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #4d8a8b;
+}
+
+/* Error message styling */
+#error-message {
+    color: #ff6666;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+/* Styling specific to the dashboard */
+.dashboard-container {
+    width: 400px;
+}
+
+.dashboard-content {
+    margin-top: 20px;
+}
+
+.dashboard-content button {
+    width: 150px;
+    padding: 10px;
+    background-color: #5e9ea0;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dashboard-content button:hover {
+    background-color: #4d8a8b;
+}
+
+/* Styling to login page */
+.left {
+    width: 50%;
+    height: 100vh;
+    background-image: url(./images/bg.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-color: #c9edf9;
+    background-repeat: no-repeat;
+    margin-bottom: 10px;
+    background-position-x: 165px;
+}
+
+
+.right {
+    width: 50%;
+}
+
+.p-2 {
+    padding: 0.5rem;
+    background: #e9f1f3;
+}
+
+.w-16 {
+    width: 16rem;
+}
+
+.rounded-full {
+    border-radius: 9999px;
+}
+
+.border {
+    
+    border: 1px solid #ccc;
+    border-radius: 20px;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    margin: 20px 0;
+    text-align: center;
+    color: black;
+    font-weight: bold;
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    border-bottom: 1px solid black;
+    margin: 0 10px;
+}
+
+.icon {
+    font-size: 24px;
+    cursor: pointer;
+    color: black;
+    margin-left: 0.5rem;
+}
+
+
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+
+.right .footer {
+
+    color: #201d1d;
+    position: absolute;
+    bottom: 15px;
+    width: 50%;
+    display: flex;
+    justify-content: end;
+    padding: 0 59px;
+    gap: 20px;
+    display: flex;
+}
+
+.icon-top {
+    display: flex;
+    right: 1rem;
+    top: 1rem;
+}
+
+.right .settings,
+.right .grid {
+    position: absolute;
+    top: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    color: black;
+}
+
+.right .settings {
+    right: 60px;
+}
+
+.right .grid {
+    right: 20px;
+}
+
+#copyMessage {
+    display: none; 
+    color:black;
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.logout-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    /* Adjust size as needed */
+    cursor: pointer;
+    color: black;
+    /* Change color as needed */
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+
+<body>
+
+
+    <div class="left"></div>
+    <div class="right">
+        <div class="icon-top">
+            <i class="fas fa-cog settings">
+            </i>
+            <i class="fas fa-th-large grid">
+            </i>
+        </div>
+        <form id="login-form" class="t-align ">
+            <div class="form-group t-center">
+                <input type="text" id="username" placeholder="Enter your Id" class="p-2 border rounded w-16" required>
+                <i class="fas fa-arrow-circle-right icon" id="arrow-icon"></i>
+            </div>
+
+            <div class="form-group">
+                <span class="divider">or share your ID</span>
+            </div>
+            <div class="form-group t-center">
+                <input type="text" id="wordField" class="p-2 border rounded w-16" readonly>
+                <i class="fas fa-copy icon" id="copy-icon" onclick="copyGeneratedWord()"></i>
+            </div>
+        </form>
+        <p id="copyMessage">Copied!</p>
+        <div id="error-message"></div>
+        <div class="footer">
+            <span>
+                About us
+            </span>
+            <span>
+                Help
+            </span>
+        </div>
+    </div>
+
+
+    <script>
+        const { ipcRenderer } = require('electron');
+        const io = require('socket.io-client');
+
+        // Establish socket connection
+        // const socket = io('http://192.168.31.9:3000');
+
+        const errorMessage = document.getElementById('error-message');
+        const arrowIcon = document.getElementById('arrow-icon');
+        const wordField = document.getElementById('wordField');
+        const copyMessage = document.getElementById('copyMessage');
+
+        arrowIcon.addEventListener('click', () => {
+            const username = document.getElementById('username').value;
+            if (username) {
+                localStorage.setItem('registeredUsername', username);
+                window.location.href = './dashboard.html';
+            } else {
+                errorMessage.textContent = 'Please enter your username';
+            }
+        });
+        function generateRandomString() {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let randomString = '';
+
+            for (let i = 0; i < 10; i++) {
+                const randomIndex = Math.floor(Math.random() * characters.length);
+                randomString += characters[randomIndex];
+            }
+
+            return randomString;
+        }
+        function setGeneratedString() {
+            const word = generateRandomString();
+            const wordField = document.getElementById('wordField');
+            wordField.value = word;
+        }
+        document.addEventListener('DOMContentLoaded', setGeneratedString);
+
+        function copyGeneratedWord() {
+            const wordField = document.getElementById('wordField');
+            const word = wordField.value;
+            const copyMessage = document.getElementById('copyMessage');
+
+            navigator.clipboard.writeText(word).then(() => {
+                copyMessage.style.display = "block";
+                setTimeout(() => {
+                    copyMessage.style.display = "none";
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy word: ', err);
+            });
+        }
+        // function copyGeneratedWord() {
+        //     const wordField = document.getElementById('wordField');
+        //     const word = wordField.value;
+        //     const copyMessage = document.getElementById('copyMessage');
+
+        //     navigator.clipboard.writeText(word).then(() => {
+        //         // Store user ID in local storage
+        //         localStorage.setItem('userId', word);
+        //         copyMessage.style.display = "block";
+        //         setTimeout(() => {
+        //             copyMessage.style.display = "none";
+        //         }, 2000);
+        //     }).catch(err => {
+        //         console.error('Failed to copy word: ', err);
+        //     });
+        // }
+
+    </script>
+</body>
+
+</html>
